@@ -1,0 +1,16 @@
+with
+    source_SALESORDERHEADERSALESREASON as (
+        select *
+        from {{ source('erp', 'SALESORDERHEADERSALESREASON') }}
+    )
+
+    , renomeado as (
+        select
+            cast (SALESORDERID as int) as SALESORDERID
+            , cast (SALESREASONID as int) as SALESREASONID
+            , cast (MODIFIEDDATE as string) as MODIFIEDDATE
+        from source_SALESORDERHEADERSALESREASON
+    )
+
+    select *
+    from renomeado
