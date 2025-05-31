@@ -6,8 +6,8 @@ with
 
     , renomeado as (
         select
-            cast (SALESORDERID as int) as SALESORDERID
-            , cast (SALESORDERDETAILID as int) as SALESORDERDETAILID
+            cast (SALESORDERDETAILID as int) as pk_SALESORDERDETAILID
+            , cast (SALESORDERID as int) as fk_SALESORDERID
             , cast (CARRIERTRACKINGNUMBER as string) as CARRIERTRACKINGNUMBER
             , cast (ORDERQTY as int) as ORDER_QUANTITY
             , cast (PRODUCTID as int) as PRODUCTID

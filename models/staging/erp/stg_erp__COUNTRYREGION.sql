@@ -6,7 +6,7 @@ with
 
     , renomeado as (
         select
-            cast (COUNTRYREGIONCODE as string) as COUNTRYREGIONCODE
+            cast (COUNTRYREGIONCODE as string) as pk_COUNTRYREGIONCODE
             , cast (NAME as string) as COUNTRY_NAME
             , cast (MODIFIEDDATE as string) as MODIFIEDDATE
         from source_COUNTRYREGION

@@ -6,8 +6,8 @@ with
 
     , renomeado as (
         select
-            cast (SALESORDERID as int) as SALESORDERID
-            , cast (SALESREASONID as int) as SALESREASONID
+            cast (SALESORDERID as int) as pk_SALESORDERID
+            ,cast (SALESREASONID as int) as fk_SALESREASONID
             , cast (MODIFIEDDATE as string) as MODIFIEDDATE
         from source_SALESORDERHEADERSALESREASON
     )

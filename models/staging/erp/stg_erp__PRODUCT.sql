@@ -6,7 +6,7 @@ with
 
     , renomeado as (
         select
-            cast (PRODUCTID as int) as PRODUCTID
+            cast (PRODUCTID as int) as pk_PRODUCTID
             , cast (NAME as string) as PRODUCT_NAME
             , cast (PRODUCTNUMBER as string) as PRODUCTNUMBER
             , cast (REORDERPOINT as int) as REORDERPOINT

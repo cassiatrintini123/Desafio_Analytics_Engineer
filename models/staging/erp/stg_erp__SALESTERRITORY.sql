@@ -6,9 +6,9 @@ with
 
     , renomeado as (
         select
-            cast (TERRITORYID as int) as TERRITORYID
+            cast (TERRITORYID as int) as pk_TERRITORYID
+            , cast (COUNTRYREGIONCODE as string) as fk_COUNTRYREGIONCODE
             , cast (NAME as string) as TERRITORYID_NAME
-            , cast (COUNTRYREGIONCODE as string) as COUNTRYREGIONCODE
             , cast ("group" as string) as CONTINENT
             , cast (SALESYTD as int) as SALESYTD
             , cast (SALESLASTYEAR as int) as SALESLASTYEAR

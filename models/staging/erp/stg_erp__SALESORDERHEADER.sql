@@ -6,19 +6,19 @@ with
 
     , renomeado as (
         select
-            cast (SALESORDERID as int) as SALESORDERID
+            cast (SALESORDERID as int) as pk_SALESORDERID
+            , cast (CREDITCARDID as int) as fk_CREDITCARDID
+            , cast (CUSTOMERID as int) as fk_CUSTOMERID
+            , cast (SHIPTOADDRESSID as int) as fk_SHIPTOADDRESSID
+            , cast (TERRITORYID as int) as fk_TERRITORYID
+            , cast (STATUS as int) as STATUS
             , cast (REVISIONNUMBER as int) as REVISIONNUMBER
             , cast (ORDERDATE as string) as ORDERDATE
             , cast (DUEDATE as string) as DUEDATE
             , cast (SHIPDATE as string) as SHIPDATE
-            , cast (STATUS as int) as STATUS
             , cast (ONLINEORDERFLAG as string) as ONLINEORDERFLAG
-            , cast (CUSTOMERID as int) as CUSTOMERID
-            , cast (TERRITORYID as int) as TERRITORYID
             , cast (BILLTOADDRESSID as int) as BILLTOADDRESSID
-            , cast (SHIPTOADDRESSID as int) as SHIPTOADDRESSID
             , cast (SHIPMETHODID as int) as SHIPMETHODID
-            , cast (CREDITCARDID as int) as CREDITCARDID
             , cast (CREDITCARDAPPROVALCODE as string) as CREDITCARDAPPROVALCODE
             , cast (SUBTOTAL as real) as SUBTOTAL
             , cast (TAXAMT as real) as TAXAMT

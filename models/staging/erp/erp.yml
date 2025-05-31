@@ -4,14 +4,81 @@ sources:
     schema: RAW_ADVENTURE_WORKS
     database: fea24_11
     tables:
-      - name: CREDITCARD
-      - name: CUSTOMER
-      - name: COUNTRYREGION
-      - name: SALESTERRITORY
-      - name: STATEPROVINCE
+
       - name: ADDRESS
-      - name: SALESORDERHEADER
-      - name: SALESORDERDETAIL
-      - name: SALESORDERHEADERSALESREASON
-      - name: SALESREASON
+        columns:
+          - name: ADDRESSID
+            data_tests:
+              - unique
+              - not_null
+
+      - name: COUNTRYREGION
+        columns:
+          - name: COUNTRYREGIONCODE
+            data_tests:
+            - unique
+            - not_null
+
+      - name: CREDITCARD
+        columns:
+          - name: CREDITCARDID
+            data_tests:
+              - unique
+              - not_null
+              
+      - name: CUSTOMER
+        columns:
+          - name: CUSTOMERID
+            data_tests:
+              - unique
+              - not_null
+
       - name: PRODUCT
+        columns:
+          - name: PRODUCTID
+            data_tests:
+              - unique
+              - not_null
+
+      - name: SALESORDERDETAIL
+        columns:
+          - name: SALESORDERDETAILID
+            data_tests:
+              - unique
+              - not_null
+
+      - name: SALESORDERHEADER
+        columns:
+          - name: SALESORDERID
+            data_tests:
+              - unique
+              - not_null
+
+      - name: SALESORDERHEADERSALESREASON
+
+      - name: SALESREASON   
+        columns:
+          - name: SALESREASONID
+            data_tests:
+              - unique
+              - not_null
+                                     
+      - name: SALESTERRITORY
+        columns:
+          - name: TERRITORYID
+            data_tests:
+              - unique
+              - not_null           
+
+      - name: STATEPROVINCE
+        columns:
+            - name: STATEPROVINCEID
+              data_tests:
+                - unique
+                - not_null
+
+                          
+
+              
+
+              
