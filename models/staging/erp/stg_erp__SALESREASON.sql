@@ -9,7 +9,6 @@ with
             cast (SALESREASONID as int) as pk_SALESREASONID
             , cast (NAME as string) as SALESREASON_NAME
             , cast (REASONTYPE as string) as REASONTYPE_NAME
-            , cast (MODIFIEDDATE as string) as MODIFIEDDATE
         from source_SALESREASON
     )
 

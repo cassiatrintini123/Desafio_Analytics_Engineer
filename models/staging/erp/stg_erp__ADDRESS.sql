@@ -7,14 +7,9 @@ with
     , renomeado as (
         select
             cast (ADDRESSID as string) as pk_ADDRESSID
-            , cast (ADDRESSLINE1 as string) as ADDRESSLINE1
-            , cast (ADDRESSLINE2 as string) as ADDRESSLINE2
             , cast (CITY as string) as CITY_NAME
             , cast (STATEPROVINCEID as int) as fk_STATEPROVINCEID
             , cast (POSTALCODE as string) as POSTALCODE
-            , cast (SPATIALLOCATION as string) as SPATIALLOCATION
-            , cast (ROWGUID as string) as ROWGUID
-            , cast (MODIFIEDDATE as string) as MODIFIEDDATE
         from source_ADDRESS
     )
 
