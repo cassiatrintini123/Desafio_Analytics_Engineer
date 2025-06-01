@@ -8,7 +8,7 @@ with
         select
             cast (CUSTOMERID as int) as pk_CUSTOMERID
             , cast (PERSONID as int) as PERSONID
-            , cast (TERRITORYID as int) as fk_TERRITORYID
+            , cast (TERRITORYID as int) as fk_TERRITORYID_CUSTOMER
         from source_CUSTOMER
     )
 

@@ -10,7 +10,7 @@ with
             , cast (CREDITCARDID as int) as fk_CREDITCARDID
             , cast (CUSTOMERID as int) as fk_CUSTOMERID
             , cast (SHIPTOADDRESSID as int) as fk_SHIPTOADDRESSID
-            , cast (TERRITORYID as int) as fk_TERRITORYID
+            , cast (TERRITORYID as int) as fk_TERRITORYID_SALESORDERHEADER
             , cast (STATUS as int) as STATUS
             , cast (ORDERDATE as string) as ORDERDATE
             , cast (DUEDATE as string) as DUEDATE
