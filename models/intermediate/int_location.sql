@@ -51,7 +51,20 @@ with
     joined_ADDRESS_STATEPROVINCE as (
 
         select
-            jsa.*
+            jsa.PK_SALESORDERID
+            , jsa.FK_CREDITCARDID
+            , jsa.FK_CUSTOMERID
+            , jsa.FK_SHIPTOADDRESSID
+            , jsa.fk_TERRITORYID_SALESORDERHEADER
+            , jsa.STATUS
+            , jsa.ORDERDATE
+            , jsa.DUEDATE
+            , jsa.SHIPDATE
+            , jsa.FREIGHT
+            , jsa.PK_ADDRESSID
+            , jsa.CITY_NAME
+            , jsa.FK_STATEPROVINCEID
+            , jsa.POSTALCODE
             , STATEPROVINCE.PK_STATEPROVINCEID
             , STATEPROVINCE.FK_TERRITORYID_STATEPROVINCE
             , STATEPROVINCE.FK_STATEPROVINCECODE
@@ -71,7 +84,7 @@ with
             , SALESTERRITORY.TERRITORYID_NAME
             , SALESTERRITORY.CONTINENT
         from joined_ADDRESS_STATEPROVINCE jasp
-        left join SALESTERRITORY on jasp.FK_TERRITORYID = SALESTERRITORY.PK_TERRITORYID 
+        left join SALESTERRITORY on jasp.FK_TERRITORYID_SALESORDERHEADER = SALESTERRITORY.PK_TERRITORYID 
     ),
 
     -- Última união: união anterior com a COUNTRYREGION
