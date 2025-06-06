@@ -12,9 +12,9 @@ with
             , cast (SHIPTOADDRESSID as int) as fk_SHIPTOADDRESSID
             , cast (TERRITORYID as int) as fk_TERRITORYID_SALESORDERHEADER
             , cast (STATUS as int) as STATUS
-            , cast (ORDERDATE as string) as ORDERDATE
-            , cast (DUEDATE as string) as DUEDATE
-            , cast (SHIPDATE as string) as SHIPDATE
+            , cast (ORDERDATE as date) as ORDERDATE
+            , cast (DUEDATE as date) as DUEDATE
+            , cast (SHIPDATE as date) as SHIPDATE
             , cast (FREIGHT as real) as FREIGHT
         from source_SALESORDERHEADER
     )
