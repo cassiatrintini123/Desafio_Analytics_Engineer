@@ -46,6 +46,14 @@ with
             , FK_SHIPTOADDRESSID
             , FK_TERRITORYID_SALESORDERHEADER
             , STATUS
+            , case 
+                when STATUS like 1 then 'In process'
+                when STATUS like 2 then 'In Approved'
+                when STATUS like 3 then 'Backordered'
+                when STATUS like 4 then 'Rejected' 
+                when STATUS like 5 then 'Shipped'
+                when STATUS like 6 then 'Cancelled' 
+            end as STATUS_DESCRIPTION
             , ORDERDATE
             , DUEDATE
             , SHIPDATE
@@ -54,6 +62,6 @@ with
     )
 
 select *
-from metrics  
+from metrics
 
 

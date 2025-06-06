@@ -1,80 +1,42 @@
 with
     COUNTRYREGION as (
         select *
-        from {{ ref('stg_erp__COUNTRYREGION')}}
+        from {{ ref('stg_erp__COUNTRYREGION') }}
     ),
 
     SALESTERRITORY as (
         select *
-        from {{ ref('stg_erp__SALESTERRITORY')}}
+        from {{ ref('stg_erp__SALESTERRITORY') }}
     ),
 
     STATEPROVINCE as (
         select *
-        from {{ ref('stg_erp__STATEPROVINCE')}}
+        from {{ ref('stg_erp__STATEPROVINCE') }}
     ),
     
     ADDRESS as (
         select *
-        from {{ ref('stg_erp__ADDRESS')}}
+        from {{ ref('stg_erp__ADDRESS') }}
     ),
 
-    SALESORDERHEADER as (
-        select *
-        from {{ ref('stg_erp__SALESORDERHEADER')}}
-    ),
+    -- União de ADDRESS com STATEPROVINCE
 
-    -- Primeira união: SALESORDERHEADER com a ADDRESS
-
-    joined_SALESORDERHEADER_ADDRESS as (
+    joined_ADDRESS_STATEPROVINCE as (
         select
-            SALESORDERHEADER.PK_SALESORDERID
-            , SALESORDERHEADER.FK_CREDITCARDID
-            , SALESORDERHEADER.FK_CUSTOMERID
-            , SALESORDERHEADER.FK_SHIPTOADDRESSID
-            , SALESORDERHEADER.fk_TERRITORYID_SALESORDERHEADER
-            , SALESORDERHEADER.STATUS
-            , SALESORDERHEADER.ORDERDATE
-            , SALESORDERHEADER.DUEDATE
-            , SALESORDERHEADER.SHIPDATE
-            , SALESORDERHEADER.FREIGHT
-            , ADDRESS.PK_ADDRESSID
+            ADDRESS.PK_ADDRESSID
             , ADDRESS.CITY_NAME
             , ADDRESS.FK_STATEPROVINCEID
             , ADDRESS.POSTALCODE
-        from SALESORDERHEADER
-        left join ADDRESS on SALESORDERHEADER.FK_SHIPTOADDRESSID = ADDRESS.PK_ADDRESSID
-    ),
-
-    -- Segunda união: união anterior com a ADDRESS
-
-    joined_ADDRESS_STATEPROVINCE as (
-
-        select
-            jsa.PK_SALESORDERID
-            , jsa.FK_CREDITCARDID
-            , jsa.FK_CUSTOMERID
-            , jsa.FK_SHIPTOADDRESSID
-            , jsa.fk_TERRITORYID_SALESORDERHEADER
-            , jsa.STATUS
-            , jsa.ORDERDATE
-            , jsa.DUEDATE
-            , jsa.SHIPDATE
-            , jsa.FREIGHT
-            , jsa.PK_ADDRESSID
-            , jsa.CITY_NAME
-            , jsa.FK_STATEPROVINCEID
-            , jsa.POSTALCODE
             , STATEPROVINCE.PK_STATEPROVINCEID
             , STATEPROVINCE.FK_TERRITORYID_STATEPROVINCE
             , STATEPROVINCE.FK_STATEPROVINCECODE
             , STATEPROVINCE.FK_COUNTRYREGIONCODE_STATEPROVINCE
             , STATEPROVINCE.PROVINCE_NAME
-        from joined_SALESORDERHEADER_ADDRESS jsa
-        left join STATEPROVINCE on jsa.FK_STATEPROVINCEID = STATEPROVINCE.PK_STATEPROVINCEID
+        from ADDRESS
+        left join STATEPROVINCE on ADDRESS.FK_STATEPROVINCEID = STATEPROVINCE.PK_STATEPROVINCEID
     ),
 
-    -- Terceira união: união anterior com a SALESTERRITORY
+    -- União anterior com a SALESTERRITORY
 
     joined_STATEPROVINCE_SALESTERRITORY as (
         select
@@ -84,10 +46,10 @@ with
             , SALESTERRITORY.TERRITORYID_NAME
             , SALESTERRITORY.CONTINENT
         from joined_ADDRESS_STATEPROVINCE jasp
-        left join SALESTERRITORY on jasp.FK_TERRITORYID_SALESORDERHEADER = SALESTERRITORY.PK_TERRITORYID 
+        left join SALESTERRITORY on jasp.FK_TERRITORYID_STATEPROVINCE = SALESTERRITORY.PK_TERRITORYID 
     ),
 
-    -- Última união: união anterior com a COUNTRYREGION
+    -- Última união com COUNTRYREGION
 
     final_joined_data as (
         select
@@ -99,4 +61,4 @@ with
     )
 
 select *
-from final_joined_data 
+from final_joined_data
