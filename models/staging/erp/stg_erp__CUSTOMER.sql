@@ -6,9 +6,9 @@ with
 
     , renomeado as (
         select
-            cast (CUSTOMERID as int) as pk_CUSTOMERID
+            cast (CUSTOMERID as int) as PK_CUSTOMERID
             , cast (PERSONID as int) as PERSONID
-            , cast (TERRITORYID as int) as fk_TERRITORYID_CUSTOMER
+            , cast (TERRITORYID as int) as FK_TERRITORYID_CUSTOMER
         from source_CUSTOMER
     )
 
