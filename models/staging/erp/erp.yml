@@ -33,6 +33,20 @@ sources:
               - unique
               - not_null
 
+      - name: PERSON
+        columns:
+          - name: BUSINESSENTITYID
+            data_tests:
+              - unique
+              - not_null
+
+      - name: PERSONCREDITCARD
+        columns:
+          - name: BUSINESSENTITYID
+            data_tests:
+              - unique
+              - not_null
+
       - name: PRODUCT
         columns:
           - name: PRODUCTID
@@ -77,6 +91,12 @@ sources:
                 - unique
                 - not_null
 
+      - name: STORE
+        columns:
+            - name: BUSINESSENTITYID
+              data_tests:
+                - unique
+                - not_null
                           
 
               
