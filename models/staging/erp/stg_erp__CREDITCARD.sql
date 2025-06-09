@@ -6,7 +6,7 @@ with
 
     , renomeado as (
         select
-            cast (CREDITCARDID as int) as pk_CREDITCARDID
+            cast (CREDITCARDID as int) as PK_CREDITCARDID
             , cast (CARDTYPE as string) as CARDTYPE
         from source_CREDITCARD
     )

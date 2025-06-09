@@ -6,7 +6,7 @@ with
 
     , renomeado as (
         select
-            cast (BUSINESSENTITYID as int) as pk_BUSINESSENTITYID_PERSON
+            cast (BUSINESSENTITYID as int) as PK_BUSINESSENTITYID_PERSON
             , cast (FIRSTNAME as string) as FIRST_NAME
             , cast (LASTNAME as string) as LAST_NAME
         from source_PERSON

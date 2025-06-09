@@ -1,9 +1,21 @@
-with 
-    CUSTOMER as (
+with
+    
+    int_person as (
         select *
-        from {{ ref('stg_erp__CUSTOMER')}}
+        from {{ ref('int_person') }}
     )
 
-select * 
-from CUSTOMER
+    , int_store as (
+        select *
+        from {{ ref('int_store') }}
+    )
+
+    , renamed as (
+        select *
+        from int_store
+        left join int_person on int_store.PERSONID = int_person.PK_BUSINESSENTITYID_PERSONCREDITCARD
+    )
+
+select *
+from renamed
 

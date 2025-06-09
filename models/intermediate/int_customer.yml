@@ -1,9 +1,0 @@
-models:
-  - name: int_customer
-    description: intermediate model to make joins with the customer table if necessary in the future
-    columns:
-      - name: PK_CUSTOMERID
-        data_tests:
-          - unique
-          - not_null
-
