@@ -1,0 +1,52 @@
+models:
+  - name: dim_location
+    description: location dimension of Adventure Works
+    columns:
+      - name: PK_ADDRESSID
+        description: Primary key of this dimension table
+        data_tests:
+          - unique
+          - not_null
+
+  - name: CITY_NAME
+    description: City name.
+
+  - name: FK_STATEPROVINCEID
+    description: Province ID (foreign key of ADDRESS table).
+
+  - name: POSTALCODE
+    description: Postal code.
+
+  - name: PK_STATEPROVINCEID
+    description: Province ID (primary key of STATEPROVINCE table).
+
+  - name: FK_TERRITORYID_STATEPROVINCE
+    description: Territory ID (foreign key of STATEPROVINCE table).
+
+  - name: FK_STATEPROVINCECODE
+    description: Province code (foreign key of STATEPROVINCE table).
+
+  - name: FK_COUNTRYREGIONCODE_STATEPROVINCE
+    description: Country code (foreign key of STATEPROVINCE table).
+
+  - name: PROVINCE_NAME
+    description: Province name.
+
+  - name: PK_TERRITORYID
+    description: Territory ID (primary key of SALESTERRITORY table).
+
+  - name: FK_COUNTRYREGIONCODE_SALESTERRITORY
+    description: Country code (foreign key of SALESTERRITORY table).
+
+  - name: TERRITORYID_NAME
+    description: Territory name.
+
+  - name: CONTINENT
+    description: Continent name.
+
+  - name: PK_COUNTRYREGIONCODE
+    description: Country code (primary key of COUNTRYREGIONCODE table).
+
+  - name: COUNTRY_NAME
+    description: Country name.
+

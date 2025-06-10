@@ -1,0 +1,15 @@
+models:
+  - name: dim_product
+    description: product dimension of Adventure Works
+    columns:
+      - name: PK_PRODUCTID
+        description: Primary key of this dimension table
+        data_tests:
+          - unique
+          - not_null
+          
+      - name: PRODUCT_NAME
+        description: Product name. 
+          
+      - name: PRODUCTNUMBER
+        description: Product number.

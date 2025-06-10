@@ -1,0 +1,22 @@
+models:
+  - name: dim_reasons
+    description: reasons dimension of Adventure Works
+    columns:
+      - name: PK_SALESORDERID
+        description: Primary key of this dimension table
+        data_tests:
+          - unique
+          - not_null 
+
+      - name: FK_SALESREASONID
+        description: Reason ID (foreign key of SALESREASON table)
+
+      - name: PK_SALESREASONID
+        description: Reason ID (primary key of SALESORDERHEADERSALESREASON table) 
+
+      - name: SALESREASON_NAME
+        description: Sales reason description/name.
+
+      - name: REASONTYPE_NAME
+        description: Sales reason type description/name.
+

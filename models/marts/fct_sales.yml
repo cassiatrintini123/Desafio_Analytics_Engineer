@@ -1,0 +1,63 @@
+models:
+  - name: fct_sales
+    description: sales fact table of Adventure Works
+    columns:
+      - name: PK_SALESORDERDETAILID
+        description: Primary key of this fact table
+        data_tests:
+          - unique
+          - not_null
+
+  - name: FK_SALESORDERID
+    description: Sales order ID (foreign key of SALESORDERDETAIL table)
+
+  - name: PRODUCTID
+    description: Product ID.
+
+  - name: ORDER_QUANTITY
+    description: Order quantity.
+
+  - name: UNITPRICE
+    description: Unit price. 
+
+  - name: UNITPRICEDISCOUNT
+    description: Unit price discount.
+
+  - name: NEGOTIATED_PRICE
+    description: Negotiated price (ORDER_QUANTITY*UNITPRICE).
+
+  - name: PK_SALESORDERID
+    description: Sales order ID (primary key of SALESORDERHEADER table).
+
+  - name: FK_CREDITCARDID
+    description: Credit card ID (foreign key of SALESORDERHEADER table).
+
+  - name: FK_CUSTOMERID
+    description: Customer ID (foreign key of SALESORDERHEADER table)
+
+  - name: FK_SHIPTOADDRESSID
+    description: Ship to address ID (foreign key of SALESORDERHEADER table)
+
+  - name: FK_TERRITORYID_SALESORDERHEADER
+    description: Territory ID (foreign key of SALESORDERHEADER table)
+
+  - name: STATUS
+    description: Order status.
+
+  - name: STATUS_DESCRIPTION
+    description: Order status description based on this documentation > https://dataedo.com/samples/html/AdventureWorks/doc/AdventureWorks_2/modules/Sales_12/tables/Sales_SalesOrderHeader_185.html
+
+  - name: ORDERDATE
+    description: Order date.
+
+  - name: DUEDATE
+    description: Due date.
+
+  - name: SHIPDATE
+    description: Ship date.
+
+  - name: FREIGHT
+    description: Freight
+
+
+

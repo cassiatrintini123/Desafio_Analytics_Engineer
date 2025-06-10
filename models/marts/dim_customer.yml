@@ -1,0 +1,40 @@
+models:
+  - name: dim_customer
+    description: customer dimension of Adventure Works
+    columns:
+      - name: PK_CUSTOMERID
+        description: Primary key of this dimension table
+        data_tests:
+          - unique
+          - not_null
+            
+      - name: PERSONID
+        description: Customer ID which is a person.
+          
+      - name: STOREID
+        description: Customer ID which is a store.
+          
+      - name: PK_BUSINESSENTITYID_STORE
+        description: Is the primary key related to the STORE table.
+          
+      - name: STORE_NAME
+        description: Is the name of the store.
+          
+      - name: PK_CREDITCARDID
+        description: Is the credit card ID (primary key of CREDITCARD table).
+          
+      - name: CARDTYPE
+        description: Is the type of credit card.
+          
+      - name: FK_CREDITCARDID
+        description: Is the credit card ID (foreign key of PERSONCREDITCARD table).
+          
+      - name: PK_BUSINESSENTITYID_PERSONCREDITCARD
+        description: Is the primary key related to the PERSONCREDITCARD table.
+          
+      - name: FIRST_NAME
+        description: Is the first name of the customer (when it is a person).
+          
+      - name: LAST_NAME
+        description: Is the last name of the customer (when it is a person). 
+          
