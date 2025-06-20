@@ -37,4 +37,7 @@ models:
           
       - name: LAST_NAME
         description: Is the last name of the customer (when it is a person). 
+
+      - name: FULL_NAME
+        description: Is the full name of the customer (when it is a person). 
           
